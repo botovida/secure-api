@@ -1,0 +1,28 @@
+{
+  "name": "ajocard",
+  "version": "1.0.0",
+  "description": "Secure Payment API",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app",
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/botovida/secure-api.git"
+  },
+  "keywords": [
+    "secure",
+    "payment",
+    "API"
+  ],
+  "author": "Tobechukwu Obitube",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/botovida/secure-api/issues"
+  },
+  "homepage": "https://github.com/botovida/secure-api#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
