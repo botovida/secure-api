@@ -25,15 +25,15 @@ This API is currently under development. Users can test the API in a local devel
 
     To clone this repository: 
 
-  a) Ensure you have git and a web browser installed
-  b) git clone https://github.com/botovida/secure-api/tree/staging-secure-api
-  c) Run npm install
-  d) Run npm start to start the server
-  e) On the browser, navigate to **``127.0.0.1:3000``**; You will be greeted with a message: **``Welcome to AjoCard Payment Services!``**
+  a. Ensure you have git and a web browser installed
+  b. git clone https://github.com/botovida/secure-api/tree/staging-secure-api
+  c. Run npm install
+  d. Run npm start to start the server
+  e. On the browser, navigate to **``127.0.0.1:3000``**; You will be greeted with a message: **``Welcome to AjoCard Payment Services!``**
 
 ##### 2) Make payment API call
-a) Ensure you have **Postman** installed
-b) On Postman make an ``POST`` API call to ``127.0.0.1:3000/api/v1/paymets`` endpoint with the following parameters:
+a. Ensure you have **Postman** installed
+b. On Postman make an ``POST`` API call to ``127.0.0.1:3000/api/v1/paymets`` endpoint with the following parameters:
 
 ```
   "accountBalance": 1000,
@@ -44,7 +44,7 @@ b) On Postman make an ``POST`` API call to ``127.0.0.1:3000/api/v1/paymets`` end
 
 Note: **Ensure that values entered are integers else, an error will be thrown**
 
-c) On successful acceptance of payment details upon user request, the following response is expected:
+c. On successful acceptance of payment details upon user request, the following response is expected:
 ```
   "data": {
     "status": 201,
@@ -64,8 +64,8 @@ c) On successful acceptance of payment details upon user request, the following 
 
 ##### 3) Confirm Payment API call
 
-a) On **Postman** make a PATCH request to ``127.0.0.1:3000/api/v1/payment/:id`` using the transaction ID from the response of the Payment API call above as ``:id`` parameter.
-b) Enter the generated OTP in the response above in the body of this request as shown in the example below:
+a. On **Postman** make a PATCH request to ``127.0.0.1:3000/api/v1/payment/:id`` using the transaction ID from the response of the Payment API call above as ``:id`` parameter.
+b. Enter the generated OTP in the response above in the body of this request as shown in the example below:
 
 **Request Parameters**:
 ``127.0.0.1:3000/api/v1/payment/39fe1227-f83f-4ec1-a785-dcb265e0057a``
@@ -75,7 +75,7 @@ b) Enter the generated OTP in the response above in the body of this request as 
   "OTP": 947986
 ```
 
-c) On sucess, there will be a response message as sampled below:
+c. On sucess, there will be a response message as sampled below:
 ```
   "status": 200,
   "data": {
@@ -90,15 +90,15 @@ c) On sucess, there will be a response message as sampled below:
   }
 ```
 
-d) On failure, there will be a response message as shown below:
+d. On failure, there will be a response message as shown below:
 ``` 
 Transaction Failed
 ```
 
 ##### 4) Fetch a Log of all transactions API call
 
-a) On **Postman** make a GET request to ``127.0.0.1:3000/api/v1/payments``
-b) On success, there will be a response showing an array of transcations as shown below:
+a. On **Postman** make a GET request to ``127.0.0.1:3000/api/v1/payments``
+b. On success, there will be a response showing an array of transcations as shown below:
 ```
 "data": {
         "status": 200,
@@ -133,7 +133,7 @@ b) On success, there will be a response showing an array of transcations as show
         ]
     }
 ```
-c) There is a response message in event there are not payment records as shown below:
+c. There is a response message in event there are not payment records as shown below:
 ```
     "status": 404,
     "message": "There are no payment records"
