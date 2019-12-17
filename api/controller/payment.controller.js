@@ -8,7 +8,8 @@ const PaymentController  = {
     }
     try {
       const payment = PaymentModel.makePayment(req.body);
-      return res.status(201).send({data: { status: 201, payment }});
+      const message = 'Please enter the OTP sent to you to confirm payment'
+      return res.status(201).send({data: { status: 201, payment, message }});
     } catch (error) {
       return res.status(500).send(error.message);
     }
@@ -24,16 +25,17 @@ const PaymentController  = {
       const { OTP } = req.body;
       let currentTransaction = PaymentModel.getOnePayment(id);
       if (currentTransaction && (OTP === currentTransaction.generatedOTP) ) {
-        const { accountBalance, transactionAmount, transactionStatus, destinationWalledId, transactionDate } = currentTransaction;
+        const { transactionId, accountBalance, transactionAmount, transactionStatus, destinationWalledId, transactionDate } = currentTransaction;
         currentTransaction = {
-          transactionId: req.params,
+          transactionId,
           destinationWalledId,
           amountDebited: transactionAmount,
           accountBalance: accountBalance - transactionAmount,
           transactionStatus: 'Completed',
           transactionDate
         }
-        return res.status(200).send(currentTransaction);
+        const message = 'Payment Successful'
+        return res.status(200).send( { data: { currentTransaction, message }});
       }
       return res.status(400).send('Transaction failed!');
     } catch(error) {
