@@ -8,7 +8,11 @@ const PaymentController  = {
     }
     try {
       const payment = PaymentModel.makePayment(req.body);
-      return res.status(201).send({data: { status: 201, payment }});
+      const paymentData = {
+        payment, 
+        message: 'Please enter the OTP sent to you to confirm payment'
+      }
+      return res.status(201).send({data: { status: 201, paymentData }});
     } catch (error) {
       return res.status(500).send(error.message);
     }
