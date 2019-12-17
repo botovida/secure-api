@@ -64,7 +64,7 @@ c) On successful acceptance of payment details upon user request, the following 
 
 ##### 3) Confirm Payment API call
 
-a) Make a POST request to ``127.0.0.1:3000/api/v1/payment/:id`` using the transaction ID from the response of the Payment API call above as ``:id`` parameter.
+a) On **Postman** make a PATCH request to ``127.0.0.1:3000/api/v1/payment/:id`` using the transaction ID from the response of the Payment API call above as ``:id`` parameter.
 b) Enter the generated OTP in the response above in the body of this request as shown in the example below:
 
 **Request Parameters**:
@@ -77,6 +77,7 @@ b) Enter the generated OTP in the response above in the body of this request as 
 
 c) On sucess, there will be a response message as sampled below:
 ```
+  "status": 200,
   "data": {
     "currentTransaction": {
         "transactionId": "797f4e24-944d-4dd5-bb83-e26c953ec146",
@@ -95,3 +96,48 @@ Transaction Failed
 ```
 
 ##### 4) Fetch a Log of all transactions API call
+
+a) On **Postman** make a GET request to ``127.0.0.1:3000/api/v1/payment``
+b) On success, there will be a response showing an array of transcations as shown below:
+```
+"data": {
+        "status": 200,
+        "payments": [
+            {
+                "transactionId": "534504f7-4f01-4eb1-b030-756c768281ee",
+                "accountBalance": 1000,
+                "transactionAmount": 200,
+                "destinationWalletId": 12345,
+                "accountPin": "",
+                "generatedOTP": 264843,
+                "transactionDate": "12/17/2019, 3:41:07 PM",
+                "transactionStatus": "Pending"
+            },
+            {
+                "transactionId": "534504f7-4f01-4eb1-b030-756c768281ee",
+                "amountDebited": 200,
+                "accountBalance": 800,
+                "transactionStatus": "Completed",
+                "transactionDate": "12/17/2019, 3:41:07 PM"
+            },
+                        {
+                "transactionId": "eac740e5-1bb3-405c-8200-1c99feb5f316",
+                "accountBalance": 1000,
+                "transactionAmount": 200,
+                "destinationWalletId": 12345,
+                "accountPin": "",
+                "generatedOTP": 59367,
+                "transactionDate": "12/17/2019, 3:43:36 PM",
+                "transactionStatus": "Pending"
+            }
+        ]
+    }
+```
+c) There is a response message in event there are not payment records as shown below:
+```
+    "status": 404,
+    "message": "There are no payment records"
+```
+
+#### Note
+In event there is a server error, there will be a response with a status code of 500 and a corresponding server error message.

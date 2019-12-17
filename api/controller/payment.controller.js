@@ -34,8 +34,9 @@ const PaymentController  = {
           transactionStatus: 'Completed',
           transactionDate
         }
+        PaymentModel.payments.push(currentTransaction);
         const message = 'Payment Successful'
-        return res.status(200).send( { data: { currentTransaction, message }});
+        return res.status(200).send( { status: 200, data: { currentTransaction, message }});
       }
       return res.status(400).send('Transaction failed!');
     } catch(error) {
