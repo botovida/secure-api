@@ -1,4 +1,4 @@
-import uuid from 'uuidv4';
+import {uuid} from 'uuidv4';
 
 class Payment {
 
@@ -8,11 +8,15 @@ class Payment {
 
   makePayment(data) {
     const newPayment = {
-      id: uuid.v4(),
-      amount: data.amount || '',
+      agentID: 123456789000,
+      transactionId: uuid(),
+      accountBalance: data.accountBalance || '',
+      transactionAmount: data.transactionAmount || '',
       destinationWalletId: data.destinationWalletId || '',
-      pin: data.pin || '',
-      createdAt: new Date()
+      accountPin: data.accountPin || '',
+      generatedOTP: Math.floor(Math.random() * 999999),
+      transactionDate: new Date().toLocaleString(),
+      transactionStatus: 'Pending'
     }
 
     this.payments.push(newPayment);
@@ -20,7 +24,12 @@ class Payment {
     return newPayment;
   }
 
-  getAllPayments() {
+  getOnePayment(transactionId) {
+    const currentTransaction = this.payments.find(transaction => transaction.transactionId === transactionId);
+    return currentTransaction;
+  }
+
+  allPayments() {
     return this.payments;
   }
 };
