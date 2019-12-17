@@ -2,10 +2,33 @@ import Joi from 'joi';
 
 const paymentSchema = {
   body: {
-    accountBalance: Joi.number().integer().positive().min(4).required().error(new Error('Please ensure your Account Balance is upto N1000')),
-    transactionAmount: Joi.number().integer().positive().min(4).required().error(new Error('Please enter a minimum of N1000 as Transaction Amount')),
-    destinationWalletId: Joi.number().integer().positive().min(10).required().error(new Error('Please enter the 10-digit destination Walled ID')),
-    accountPin: Joi.number().integer().positive().min(4).required().error(new Error('Please enter your 4-digit Account PIN')),
+    accountBalance: Joi.number()
+      .integer()
+      .positive()
+      .min(4)
+      .required()
+      .error(new Error('Please ensure your Account Balance is upto N1000')),
+    
+    transactionAmount: Joi.number()
+    .integer()
+    .positive()
+    .min(4)
+    .required()
+    .error(new Error('Please enter a minimum of N1000 as Transaction Amount')),
+    
+    destinationWalletId: Joi.number()
+    .integer()
+    .positive()
+    .min(10)
+    .required()
+    .error(new Error('Please enter the 10-digit destination Walled ID')),
+    
+    accountPin: Joi.number()
+    .integer()
+    .positive()
+    .min(4)
+    .required()
+    .error(new Error('Please enter your 4-digit Account PIN')),
   }
 };
 

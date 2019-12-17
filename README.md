@@ -97,7 +97,7 @@ Transaction Failed
 
 ##### 4) Fetch a Log of all transactions API call
 
-a) On **Postman** make a GET request to ``127.0.0.1:3000/api/v1/payment``
+a) On **Postman** make a GET request to ``127.0.0.1:3000/api/v1/payments``
 b) On success, there will be a response showing an array of transcations as shown below:
 ```
 "data": {
@@ -140,4 +140,5 @@ c) There is a response message in event there are not payment records as shown b
 ```
 
 #### Note
-In event there is a server error, there will be a response with a status code of 500 and a corresponding server error message.
+  * In event there is a server error, there will be a response with a status code of 500 and a corresponding server error message.
+  * This is Version 1 of this API. It is designed using data structure to persist data. Subesequent versions may witness persisting data with a database.
