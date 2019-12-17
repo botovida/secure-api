@@ -2,9 +2,9 @@
   "name": "ajocard",
   "version": "1.0.0",
   "description": "Secure Payment API",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node app",
+    "start": "nodemon --exec babel-node index",
     "test": "npm test"
   },
   "repository": {
@@ -24,5 +24,12 @@
   "homepage": "https://github.com/botovida/secure-api#readme",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.5",
+    "@babel/core": "^7.7.5",
+    "@babel/node": "^7.7.4",
+    "@babel/preset-env": "^7.7.6",
+    "nodemon": "^2.0.2"
   }
 }
