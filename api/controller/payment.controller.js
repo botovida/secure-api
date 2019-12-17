@@ -3,9 +3,6 @@ import PaymentModel from '../model/payment.model';
 const PaymentController  = {
 
   makePayment(req, res) {
-    if (!req.body.accountBalance && !req.body.transactionAmount && !req.body.destinationWalledId && !req.body.pin) {
-      return res.status(400).send({'message': 'All fields are required'})
-    }
     try {
       const payment = PaymentModel.makePayment(req.body);
       const message = 'Please enter the OTP sent to you to confirm payment'
@@ -15,13 +12,10 @@ const PaymentController  = {
     }
   },
 
-  confirmPayment(req, res) {
+  confirmPayment(req, res, next) {
     
     const { id } = req.params;
     try {
-      if (!req.body.OTP) {
-        return res.status(400).send({ 'message': 'Enter the OTP sent to your mobile'});
-      }
       const { OTP } = req.body;
       let currentTransaction = PaymentModel.getOnePayment(id);
       if (currentTransaction && (OTP === currentTransaction.generatedOTP) ) {

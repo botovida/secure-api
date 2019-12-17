@@ -8,6 +8,7 @@ class Payment {
 
   makePayment(data) {
     const newPayment = {
+      agentID: 123456789000,
       transactionId: uuid(),
       accountBalance: data.accountBalance || '',
       transactionAmount: data.transactionAmount || '',
