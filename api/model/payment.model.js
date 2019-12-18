@@ -10,7 +10,7 @@ class Payment {
     const newPayment = {
       agentID: 123456789000,
       transactionId: uuid(),
-      accountBalance: data.accountBalance || '',
+      accountBalance: 1000,
       transactionAmount: data.transactionAmount || '',
       destinationWalletId: data.destinationWalletId || '',
       accountPin: data.accountPin || '',

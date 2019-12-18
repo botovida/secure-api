@@ -2,13 +2,6 @@ import Joi from 'joi';
 
 const paymentSchema = {
   body: {
-    accountBalance: Joi.number()
-      .integer()
-      .positive()
-      .min(4)
-      .required()
-      .error(new Error('Please ensure your Account Balance is upto N1000')),
-    
     transactionAmount: Joi.number()
     .integer()
     .positive()

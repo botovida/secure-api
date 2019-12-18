@@ -50,7 +50,6 @@ c. On successful acceptance of payment details upon user request, the following 
     "status": 201,
     "payment": {
         "transactionId": "39fe1227-f83f-4ec1-a785-dcb265e0057a",
-        "accountBalance": 1000,
         "transactionAmount": 200,
         "destinationWalletId": 12345,
         "accountPin": "",
