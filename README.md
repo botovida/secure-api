@@ -4,11 +4,11 @@ AjoCard is a financial services company, leveraging technology to provide servic
 
 To do this, users would have to be logged in to their AjoCard mobile app
 and complete a transaction by:
+
 1. Specifying the amount.
 2. Specifying the destination wallet ID.
 3. Inputting their 4 digit PIN, and
 4. Providing an OTP that’ll be sent to their registered phone number.
-
 
 ### Features
 
@@ -26,7 +26,7 @@ This API is currently under development. Users can test the API in a local devel
     To clone this repository: 
 
   a. Ensure you have git and a web browser installed
-  b. git clone https://github.com/botovida/secure-api/tree/staging-secure-api
+  b. git clone <https://github.com/botovida/secure-api>
   c. Run npm install
   d. Run npm start to start the server
   e. On the browser, navigate to **``127.0.0.1:3000``**; You will be greeted with a message: **``Welcome to AjoCard Payment Services!``**
@@ -65,6 +65,7 @@ c. On successful acceptance of payment details upon user request, the following 
 ##### 3) Confirm Payment API call
 
 a. On **Postman** make a PATCH request to ``127.0.0.1:3000/api/v1/payment/:id`` using the transaction ID from the response of the Payment API call above as ``:id`` parameter.
+
 b. Enter the generated OTP in the response above in the body of this request as shown in the example below:
 
 **Request Parameters**:
